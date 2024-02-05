@@ -1,11 +1,9 @@
 <h1> Symfony 6 « avancé » Projet symfony-for-sales</h1>
-<h2> Auteur : François Axel (le déserteur) & Arbër Jonuzi (le meilleur)</h2>
+<h2> Auteur : François Axel & Arbër Jonuzi</h2>
 <br>
 <h2>Installation / Configuration </h2>
 <p>Récuperer et installer le projet : <br>
-<B> cd /working/votre_login <br>
-git clone https://iut-info.univ-reims.fr/gitlab/fran0138/symfony-for-sale.git <br>
-cd /working/votre_login/symfony-for-sale <br>
+git clone https://github.com/Almeix22/Symfony_for_sale <br>
 </B></p>
 <p> Ensuite il faut installer composer à l'aide de la commande : <br>
 <B>composer install</B> 
