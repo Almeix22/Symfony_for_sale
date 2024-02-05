@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Validation de l'adresse e-mail{% endblock %}
+
+{% block body %}
+<div class="text-accent2 form_register container" style="background-color: white ; border-radius: 20px; padding: 20px; margin-top:10px">
+    <h2 style="color : black">Validation de l'adresse e-mail</h2>
+         {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+</div>
+{% endblock %}
+

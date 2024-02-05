@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CategoryController!{% endblock %}
+
+{% block body %}
+
+    <div class="categories" style="display: flex; flex-direction: row; flex-wrap: wrap; background-color:whitesmoke; padding: 20px">
+        {% for category in categories %}
+        <a href={{ path('app_category_show', { id: category.id }) }}> <div class="badge bg-secondary" style="font-size: 18px; margin: 5px;">{{ category.name }}</div> </a>
+    {% endfor %}
+    </div>
+
+{% endblock %}

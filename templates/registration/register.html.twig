@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    {% for flash_error in app.flashes('error') %}
+        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+    {% endfor %}
+
+    <div class="text-accent2 form_register container" style="background-color: white ; border-radius: 20px; padding: 20px; margin-top:10px">
+        <h2 style="color : black">Créer un compte</h2>
+
+        {{ form_errors(registrationForm) }}
+
+        {{ form_start(registrationForm) }}
+            {{ form_row(registrationForm.lastname, {
+                label: 'Nom'
+            })  }}
+            {{ form_row(registrationForm.firstname, {
+                label: 'Prénom'
+            })  }}
+            {{ form_row(registrationForm.email) }}
+            {{ form_row(registrationForm.plainPassword, {
+                label: 'Mot de passe'
+            }) }}
+            <button type="submit" class="btn btn-lg btn-primary connexion">Créer un compte</button>
+        {{ form_end(registrationForm) }}
+    </div>
+{% endblock %}

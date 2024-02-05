@@ -1,0 +1,20 @@
+grumphp:
+    fixer:
+        enabled: false
+        fix_by_default: false
+    tasks:
+        composer: null
+        phpcsfixer:
+            config: '.php-cs-fixer.dist.php'
+        phpunit: null
+        git_blacklist:
+            keywords: ['dump(','var_dump(','print_r(','die(','exit(','exit;']
+        git_commit_message:
+            enforce_capitalized_subject: false
+            type_scope_conventions: ['build','ci','chore','docs','feat','fix','perf','refactor','revert','style','test']
+        composer_script:
+            script: 'test:yaml'
+        composer_script_twig:
+            script: 'test:twig'
+            metadata:
+                task: composer_script

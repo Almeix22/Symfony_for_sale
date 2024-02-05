@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    Advertisement {{ advertisement.id }}
+{% endblock %}
+
+{% block body %}
+    <div class="text-accent2 show_advertisement container" style="background-color: white ; border-radius: 20px; padding: 20px; margin-top:10px">
+        <div class="advertisementShowLabel" >
+            <strong class="badge bg-secondary">Title</strong>
+            <div class="advertisement_title">{{ advertisement.title }}</div> <br>
+        </div>
+        <div class="advertisementShowLabel" >
+            <strong class="badge bg-secondary">Categorie</strong>
+            <div class="advertisement_title">{{ advertisement.category.name }}</div> <br>
+        </div>
+        <div class="advertisementShowLabel" >
+            <strong class="badge bg-secondary">Description</strong>
+            <div class="advertisement_description">{{ advertisement.description }}</div> <br>
+        </div>
+        <div class="advertisementShowLabel" >
+            <strong class="badge bg-secondary">Location</strong>
+            <div class="advertisement_location">{{ advertisement.location }}</div> <br>
+        </div>
+        <div class="advertisementShowLabel" >
+            <strong class="badge bg-secondary">Price</strong>
+            <div class="advertisement_price">{{ advertisement.price }}$ </div> <br>
+        </div>
+        <div class="advertisementShowLabel" >
+            <strong class="badge bg-accent1">Owner</strong>
+            <div class="advertisement_owner"><a class="link-accent1" href="{{ path('app_user_advertisements', {id : advertisement.owner.id}) }}">{{ advertisement.owner.firstname }}</a></div> <br>
+        </div>
+        <div class="advertisementShowOwner" >
+            <strong class="badge bg-secondary">Created At</strong>
+            <div class="advertisement_created_at">{{ advertisement.createdAt.format('d/m/Y') }} </div> <br>
+        </div>
+        <div class="advertisementShowLabel" >
+            <strong class="badge bg-secondary">Last Update</strong>
+            <div class="advertisement_last_update">{{ advertisement.updatedAt ? advertisement.updatedAt.format('d/m/Y') : "No changes made" }} </div>
+        </div>
+        {% if is_granted('EDIT_ADVERTISEMENT', advertisement) %}
+            <div class="advertisementShowLabel" >
+                <div><a class="btn btn-accent2 btnEdit " href={{ path('app_advertisement_edit', {id : advertisement.id})}}>Edit</a></div>
+                {% include 'advertisement/_form_delete.twig' with {'id' : advertisement.id} %}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
+
+

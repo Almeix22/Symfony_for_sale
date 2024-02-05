@@ -1,0 +1,12 @@
+body {
+    background-color: lightgray;
+    display: flex;
+}
+
+.show_advertisement > *{
+    margin: 5px;
+}
+
+form[name = "advertisement"] {
+    display: flex;
+}

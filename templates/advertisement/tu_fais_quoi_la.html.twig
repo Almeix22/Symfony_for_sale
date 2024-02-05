@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {% if edit %}
+        Unauthorized
+    {% else %}
+        Page not found
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    {% if edit %}
+        <div class="error-container unauthorized">
+            <h1 class="unauthorized__title">Unauthorized Access</h1>
+            <p>You do not have permission to access this page.</p>
+        </div>
+    {% else %}
+        <div class="error-container not-found">
+            <h1>404 Error - Page not found</h1>
+            <p>The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
+            <p>Please check the URL you entered for any mistakes and try again. If you believe this is an error, contact the site administrator.</p>
+        </div>
+    {% endif %}
+{% endblock %}

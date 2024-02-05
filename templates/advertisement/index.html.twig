@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% if user %}
+    {% set title = (user == app.user) ? "Mes annonces" : "Annonces de " ~ user.firstname %}
+{% else %}
+    {% set title = app.request.get("search") ? app.request.get("search") : "Advertisements !" %}
+{% endif %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+    <h1>{{ app.request.get("search") ? "Recherche de l'annonce : " ~ app.request.get("search") : "" }}</h1>
+    <ul class="list-group" style="margin-bottom: 10px;">
+        {% if pagination.items|length != 0 %}
+            {% for advertisement in pagination.items %}
+                <li class="list-group-item ">
+                    <div class="AdvertisementInfo">
+                        <div><a href={{ path('app_category_show', {id : advertisement.category.id})}} ><span class="badge">{{ advertisement.category.name }}</span> </a></div>
+                        <div ><a id="Advertisement" class="link-accent2 linkAd" href={{ path('app_advertisement_show', {id : advertisement.id})}}> <div class="advertisement_name">{{ advertisement.title }}</div> </a></div>
+                        <div class="adv_buttons">
+                            {% if is_granted('EDIT_ADVERTISEMENT', advertisement) %}
+                                <div><a class="btn btn-accent1 btnEdit" href={{ path('app_advertisement_edit', {id : advertisement.id})}}>Edit</a></div>
+                            {% endif %}
+
+                            {% if is_granted('DELETE_ADVERTISEMENT', advertisement) %}
+                                {% include 'advertisement/_form_delete.twig' with {'id' : advertisement.id} %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        {% else %}
+            <h1 class="no_add">Aucune annonce pour le moment</h1>
+        {% endif %}
+    </ul>
+    <div style="display: flex; justify-content: center;">
+    {{ knp_pagination_render(pagination) }}
+    </div>
+{% endblock %}
+

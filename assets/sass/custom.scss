@@ -1,0 +1,205 @@
+// assets/sass/custom.scss
+
+// Importez Bootstrap Sass
+$white: #ffffff;
+
+$theme-colors: (
+        "light":      #e2dede,
+        "dark":       #00003d,
+        "primary":    #00039c,
+        "secondary":  #303572,
+        "info":       #718fca,
+        "accent1":    #070722,
+        "accent2":    #4a4f97,
+        "accent3":    #a2ade1,
+        "success":    #009f64,
+        "warning":    #dbcc00,
+        "danger":     #e82f00,
+);
+
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/variables-dark';
+@import '~bootstrap/scss/maps';
+@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/utilities';
+
+
+@import '~bootstrap/scss/root';
+@import '~bootstrap/scss/reboot';
+@import "~bootstrap/scss/containers";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/dropdown";
+@import '~bootstrap/scss/nav';
+@import '~bootstrap/scss/pagination';
+@import '~bootstrap/scss/navbar';
+@import '~bootstrap/scss/badge';
+@import '~bootstrap/scss/list-group';
+@import '~bootstrap/scss/placeholders';
+
+@import '~bootstrap/scss/helpers';
+@import '~bootstrap/scss/utilities/api';
+
+
+.list-group-item:nth-child(odd){
+  @extend .list-group-item;
+
+  .badge{
+    background-color: whitesmoke;
+    color: #00003d;
+  }
+  .linkAd > div{
+    color: #ffffff;
+  }
+  .linkAd{
+    text-decoration: none;
+  }
+  .btnEdit, .btnDelete{
+    margin-right: 5px;
+    background-color: transparent;
+    border-color: white;
+    color: #fdcfdb;
+  }
+  background-color: #00003d;
+}
+
+.list-group-item:nth-child(even){
+  @extend .list-group-item;
+  .badge {
+    background-color: #00003d;
+    color: whitesmoke;
+  }
+  .linkAd > div{
+    color: #000000;
+  }
+  .linkAd{
+    text-decoration: none;
+  }
+  .btnEdit, .btnDelete{
+    background-color: transparent;
+    margin-right: 5px;
+    border-color: black;
+    color: #0f0f32;
+  }
+  background-color: whitesmoke;
+}
+
+.list-group-item {
+  .badge {
+    font-size: 1rem;
+  }
+  .AdvertisementInfo{
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.list-group{
+  margin-top: 5px;
+}
+
+.nav-item .bi{
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+  fill: currentcolor;
+}
+
+.advertisementShowLabel, .adv_buttons{
+  display: flex;
+}
+
+.advertisementShowLabel > *{
+  margin: 5px;
+}
+
+h1{
+  color: whitesmoke;
+}
+
+.login-form > h1{
+  text-align: center;
+}
+/* Style pour le formulaire de connexion */
+.login-form {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 25px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-form h1 {
+  color: #333;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.login-form button {
+  background-color: #007BFF;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.login-form button:hover {
+  background-color: #0056b3;
+}
+
+.login-form p.success {
+  color: #4CAF50;
+}
+
+.login-form p.error {
+  color: #911900;
+}
+
+.error-container {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+}
+
+.unauthorized {
+  background-color: #ffcccc; /* Fond rose pâle */
+}
+
+.not-found {
+  background-color: #ffe6cc; /* Fond orangé pâle */
+}
+
+h1 {
+  color: #911900; /* Rouge */
+}
+
+.custom-error-flash {
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  color: #721c24;
+}
+
+/* Style pour les messages flash de succès */
+.custom-success-flash {
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  color: #155724;
+}
